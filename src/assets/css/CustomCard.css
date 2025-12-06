@@ -1,0 +1,59 @@
+/*
+  Kelas Utama untuk Card
+*/
+.custom-antd-card {
+  /* Memberikan shadow dan border-radius yang lebih menonjol */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  border: 1px solid #d9d9d9;
+  overflow: hidden; /* Memastikan border-radius diterapkan dengan benar */
+}
+
+/*
+  Menyesuaikan Header Card (menggunakan kelas internal Antd: .ant-card-head)
+*/
+.custom-antd-card .ant-card-head {
+  background-color: #f0f2f5; /* Warna latar belakang header abu-abu muda */
+  border-bottom: 2px solid #1890ff; /* Border bawah biru khas Antd */
+  min-height: 60px;
+  padding: 0 24px;
+}
+
+/*
+  Menyesuaikan Judul Card (menggunakan kelas internal Antd: .ant-card-head-title)
+*/
+.custom-antd-card .ant-card-head-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/*
+  Menyesuaikan Konten Tambahan (Extra) di kanan atas
+*/
+.custom-extra-link {
+  font-weight: 600;
+}
+
+/*
+  Menyesuaikan Konten Body Card (menggunakan kelas internal Antd: .ant-card-body)
+*/
+.custom-antd-card .ant-card-body {
+  padding: 24px;
+}
+
+.card-content-text {
+  line-height: 1.6;
+  color: #555;
+}
+
+/*
+  Styling untuk Footer Kustom (di dalam Card Body)
+*/
+.custom-footer {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px dashed #e8e8e8;
+  text-align: right;
+  font-size: 0.9rem;
+}

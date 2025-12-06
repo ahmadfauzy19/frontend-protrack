@@ -1,0 +1,116 @@
+/* Ubah warna latar belakang dan teks header tabel */
+.ant-table-thead > tr > th {
+  background-color: #0A67E0 !important; /* warna latar */
+  color: #fff !important;               /* warna teks */
+  font-weight: bold;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.ant-table-tbody > tr > td {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #333;
+  text-align: center; /* optional */
+}
+
+.action-icons {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+.icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  color: #595959;
+  transition: transform 0.2s;
+  position: relative;
+}
+
+.icon-wrapper:hover {
+  color: #000;
+  transform: scale(1.1);
+}
+
+/* Span sembunyi secara default */
+.icon-label {
+  font-size: 10px;
+  margin-top: 4px;
+  color: #8c8c8c;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  height: 0;
+  overflow: hidden;
+}
+
+/* Muncul saat icon-wrapper di-hover */
+.icon-wrapper:hover .icon-label {
+  opacity: 1;
+  height: auto;
+  font-weight: bold;
+}
+
+.icon-btn-wrapper {
+  display: inline-flex;
+}
+
+.icon-btn {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(to right, #1677ff, #69b1ff);
+  border-radius: 50px;
+  color: white;
+  cursor: pointer;
+  overflow: hidden;
+  transition: width 0.3s ease;
+  position: relative;
+}
+
+.icon-btn .icon {
+  font-size: 16px;
+}
+
+.icon-btn .btn-text {
+  opacity: 0;
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-left: -6px;
+  transition: opacity 0.3s ease, max-width 0.3s ease;
+}
+
+/* Hover effect */
+.icon-btn:hover .btn-text {
+  opacity: 1;
+  max-width: 200px;
+  padding-right: 10px;
+  margin-left: 5px;
+}
+
+/* File: developer.css atau global CSS */
+.ant-modal-content {
+  background: linear-gradient(to bottom, #80baf8 0%, #80baf8 2%, #ffffff 40%) !important;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  padding: 24px;
+}
+
+.ant-modal-header {
+  background: transparent !important;
+}
+
+.ant-modal-title {
+  background: transparent !important;
+  color: #000000 !important; 
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 14px !important;
+  font-style: normal !important;
+}
+
+.ant-modal-root .ant-modal-mask {
+  background-color: #AEAEAF66 !important;
+  backdrop-filter: blur(2px);
+}

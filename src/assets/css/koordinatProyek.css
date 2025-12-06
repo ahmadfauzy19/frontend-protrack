@@ -1,0 +1,8 @@
+@import "ol/ol.css";
+
+
+/* Fix untuk posisi icon marker OpenLayers */
+.ol-map {
+  width: 100%;
+  height: 100%;
+}

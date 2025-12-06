@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
+
+#root {
+  width: 90%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+} */
+
+/* Atur agar kontainer punya posisi relatif dan tidak membatasi tinggi */
+.main-layout {
+  position: relative;
+  min-height: 100vh;
+  min-width: 99vw;
+  overflow-x: visible;
+}
+
+/* Elemen background sebagai layer di bawah konten */
+.main-layout::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  background: url(../images/layout/main-bg.jpg) no-repeat center center;
+  background-size: cover;
+  transform: rotate(180deg);
+  transform-origin: center center;
+  z-index: 0;
+  pointer-events: none; /* biar background tidak menghalangi klik */
+}
+
+/* Pastikan semua konten berada di atas background */
+.main-layout > * {
+  position: relative;
+  z-index: 1;
+}
+
+.custom-menu,
+.custom-menu * {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-weight: 700 !important;
+  font-style: bold !important;
+}
+
+.custom-menu {
+  margin-top: 10px !important;
+  background: rgba(255, 255, 0, 0) !important;
+}
+
+.custom-sider {
+  background: rgba(255, 255, 0, 0) !important;
+}
+
+.second-layout {
+  position: relative;
+  max-width: 1600px;      /* Atur lebar maksimal */
+  margin-top: 10px !important;   
+  margin-right: 10px;
+  padding: 16px 24px;    
+  min-height: 600px;      
+  z-index: 1;
+  background: url(../images/layout/image.jpg) no-repeat center center;
+  background-size: cover;
+  border-top-left-radius: 52px; 
+  border-top-right-radius: 52px;     
+  box-sizing: border-box;
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-header {
+  background: #fff !important;
+  padding: 0 !important;
+  border-radius: 52px !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18) !important;
+  height: 60px !important;
+}
+
+.ant-dropdown {
+  background: linear-gradient(180deg, #667eea 0%, #764ba2 100%) !important;
+  border-radius: 16px !important;
+}
+
+.ant-layout-sider {
+  height: auto !important;
+  max-height: 100%;
+}
+
+/* Layer blur di belakang */
+.blur-background {
+  position: absolute;
+  margin-top: 7px;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 70px;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  filter: blur(50px);
+  z-index: 1;
+}
+
+/* Logo di atas blur background */
+.logo {
+  margin-top: 9px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+}
+
+/* Optional */
+.logo-image {
+  width: 100%;
+  max-width: 160px;
+  display: block;
+}
+
+.ant-layout-sider-trigger {
+  background: linear-gradient(180deg, #35A6F9 0%, #0762DE 100%) !important;
+  color: #fff !important;
+  border-top: 1px solid rgba(0,0,0,0.04);
+  font-size: 20px;
+}
+
+
+/* .main-layout,
+.second-layout,
+.developer-container {
+  width: 100%;
+  overflow-x: auto; 
+  box-sizing: border-box;
+}  */
+
+

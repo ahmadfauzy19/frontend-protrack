@@ -1,0 +1,107 @@
+/* Container utama */
+.carousel-container {
+  padding: 1px;
+  /* Atur lebar maksimum agar 3 kartu (320px) + 2 gap (20px) + sedikit ruang sisa (misalnya 1020px) */
+  max-width: 1020px; 
+  margin: 0 auto;
+}
+
+.carousel-wrapper {
+  position: relative;
+}
+
+/* Area Scroll Horizontal */
+.card-scroll-area {
+  display: flex;
+  /* Batasi lebar area scroll menjadi 3 kartu */
+  width: calc(3 * 320px + 2 * 20px); /* (3 * card-min-width) + (2 * gap) */
+  overflow-x: scroll; /* Mengaktifkan scroll horizontal */
+  padding: 10px 0;
+  scroll-snap-type: x mandatory; /* Membantu snapping saat scrolling */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Menyembunyikan scrollbar di Chrome, Safari, dan Opera */
+.card-scroll-area::-webkit-scrollbar {
+  display: none;
+}
+
+/* Daftar Kartu */
+.card-list {
+  display: flex;
+  align-items: stretch; 
+  padding: 5px; 
+}
+
+/* Styling Dasar Kartu */
+.custom-project-card {
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+  cursor: pointer; /* Menandakan kartu bisa diklik */
+  flex-shrink: 0; 
+  min-width: 180px; /* Lebar kartu diatur di JSX, tetapi diulang di sini untuk kejelasan */
+  scroll-snap-align: start; /* Snap ke awal kartu */
+  text-align: center;
+}
+
+.custom-project-card .ant-card-body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px 1ex;
+}
+
+/* Efek Scale dan Gradient Biru-Ungu pada Kartu AKTIF */
+.custom-project-card.active-card {
+  transform: scale(1.05); /* Efek scale (membesar) */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); 
+  color: #fff; 
+}
+
+/* Menerapkan Gradient Biru-Ungu pada Kartu Aktif */
+.custom-project-card.active-card .ant-card-body {
+    /* Gradient: Biru Laut ke Ungu */
+    background: linear-gradient(135deg, #1890ff 0%, #722ed1 100%);
+    border-radius: 8px; /* Pastikan border-radius diterapkan di sini jika Card tidak punya border */
+    color: #fff; 
+}
+
+.custom-project-card.active-card .card-title {
+    color: #fff; 
+}
+
+/* Styling untuk Arrow Kanan dan Kiri */
+.scroll-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  color: #333;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  opacity: 0.8;
+}
+
+/* Posisikan panah di luar area tampilan 3 kartu */
+.left-arrow {
+    left: -60px; /* Pindah ke kiri */
+}
+
+.right-arrow {
+    right: -60px; /* Pindah ke kanan */
+}
+
+.scroll-arrow:hover {
+  background-color: #f0f0f0;
+  opacity: 1;
+}
+
+.scroll-arrow:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

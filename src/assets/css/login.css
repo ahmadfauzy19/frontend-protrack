@@ -1,0 +1,107 @@
+/* Reset body & html */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;      /* pastikan penuh */
+  width: 100%; 
+  font-family: Arial, sans-serif;
+}
+
+/* hapus background color di body, biar tidak bentrok */
+body {
+  background: none;
+}
+
+/* Container utama */
+.login-container {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  margin: 0;
+  padding: 70px;
+  background-color: #8bc3fe;
+}
+
+
+/* Bagian kiri (kuning) */
+.login-left {
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #bbe2fe 0%, #bbe2fe 10%,#ffffff 30% ,#ffffff 90%);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 20px;
+    box-shadow: 
+        5px 0 15px rgba(0, 0, 0, 0.08); 
+    /* 5px (offset X ke kanan), 0 (offset Y), 15px (blur), warna hitam 8% opacity */    
+}
+
+/* Bagian kanan (abu-abu) */
+.login-right {
+  flex: 1; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #bccee2;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: relative;
+}
+
+.welcome-content {
+    /* Container untuk teks dan gambar */
+    position: relative;
+    text-align: center; 
+}
+
+.welcome-text-selamat {
+    font-size: 3.5rem; /* Ukuran besar */
+    font-weight: 600;
+    line-height: 0;
+    color: #252b67;
+    margin-top: 90px;
+    transform: translateX(-15%);
+}
+
+.welcome-text-datang {
+    font-size: 3.5rem; /* Ukuran besar */
+    font-weight: 600;
+    line-height: 0.5;
+    color: #0a67e0;
+    margin-bottom: -100px;
+    transform: translateX(15%);
+}
+
+.illustration-wrapper {
+    margin-bottom: -55px;
+    right: 0;
+    /* Teknik agar gambar "over" ke kiri */
+    transform: translateX(-40%); /* Geser ke kiri 50% dari lebar wrapper */
+    width: 120%; /* Berikan ruang yang cukup besar untuk gambar */
+}
+
+.illustration-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Geser gambar di dalam wrapper, agar tampak "over" ke login-left */
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+  .login-left, .login-right {
+    flex: none;
+    width: 100%;
+    height: 50vh;  
+  }
+}
+
