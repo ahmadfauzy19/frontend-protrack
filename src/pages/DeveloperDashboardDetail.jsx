@@ -21,6 +21,7 @@ import {
 } from "@ant-design/icons";
 import MainLayout from "../layouts/MainLayout";
 import { fetchDeveloperDashboardDetail } from "../service/api/DashboardApi";
+import dayjs from "dayjs";
 
 const { Title, Text } = Typography;
 
@@ -56,7 +57,11 @@ const DeveloperDashboardDetail = () => {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const res = await fetchDeveloperDashboardDetail({developerId : id,page : pagination.current, size : pagination.pageSize});
+        const res = await fetchDeveloperDashboardDetail({
+          developerId: id,
+          page: pagination.current,
+          size: pagination.pageSize,
+        });
         setDeveloper(res);
       } catch (err) {
         console.error("Error fetching developer detail:", err);
@@ -182,7 +187,7 @@ const DeveloperDashboardDetail = () => {
 
         {/* Informasi Developer */}
         <Card
-          bordered={false}
+          variant="borderless"
           style={{
             borderRadius: 16,
             boxShadow: "0 4px 20px rgba(0,0,0,0.05)",
@@ -246,12 +251,62 @@ const DeveloperDashboardDetail = () => {
             onChange: (page) => setPagination({ ...pagination, current: page }),
           }}
           expandable={{
-            expandedRowRender: (record) =>
-              record.isLate ? (
-                <Text type="danger">
-                  <WarningOutlined /> {record.warningMessage}
-                </Text>
-              ) : null,
+            expandedRowRender: (record) => {
+              return (
+                <>
+                  {record.isLate && (
+                    <div style={{ marginBottom: 8 }}>
+                      <Text type="danger">
+                        <WarningOutlined /> {record.warningMessage}
+                      </Text>
+                    </div>
+                  )}
+
+                  <Table
+                    dataSource={record.disbursementTerms || []}
+                    pagination={false}
+                    size="small"
+                    rowKey={(row) =>`${record.projectId}-${row.progressStage || "term"}-${row.disbursementValue ?? "na"}-${row.submissionDate ?? "na"}`}
+                    columns={[
+                      {
+                        title: "Tahap",
+                        dataIndex: "progressStage",
+                        key: "progressStage",
+                      },
+                      {
+                        title: "Persentase Fisik",
+                        dataIndex: "physicalPercentage",
+                        key: "physicalPercentage",
+                        render: (val) =>
+                          val !== null && val !== undefined ? `${val}%` : "-",
+                      },
+                      {
+                        title: "Nilai Pencairan (Rp)",
+                        dataIndex: "disbursementValue",
+                        key: "disbursementValue",
+                        render: (val) =>
+                          val ? `Rp ${Number(val).toLocaleString("id-ID")}` : "-",
+                      },
+                      {
+                        title: "Tanggal Pengajuan",
+                        dataIndex: "submissionDate",
+                        key: "submissionDate",
+                        render: (val) =>
+                          val ? dayjs(val).format("DD MMM YYYY") : "-",
+                      },
+                      {
+                        title: "Status",
+                        dataIndex: "disbursementStatus",
+                        key: "disbursementStatus",
+                        render: (s) => (
+                          <Tag color={statusColors[s] || "default"}>{s}</Tag>
+                        ),
+                      },
+                    ]}
+                  />
+                </>
+              );
+            },
           }}
           style={{ marginTop: 16 }}
         />

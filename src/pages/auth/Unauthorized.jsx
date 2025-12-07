@@ -26,7 +26,7 @@ const Unauthorized = () => {
           boxShadow: '0 8px 20px rgba(0,0,0,0.1)',
           padding: '40px 20px',
         }}
-        bordered={false}
+        variant="borderless"
       >
         <Space direction="vertical" size="large" style={{ width: '100%' }}>
           <CloseCircleOutlined style={{ fontSize: 60, color: '#ff4d4f' }} />
